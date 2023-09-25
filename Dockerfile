@@ -10,7 +10,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN gem update --system && gem install jekyll && gem cleanup
 
-EXPOSE 4000
+EXPOSE 8080 8081
 
 WORKDIR /site
 
@@ -24,4 +24,4 @@ FROM jekyll as jekyll-serve
 # on every container start, check if Gemfile exists and warn if it's missing
 ENTRYPOINT [ "docker-entrypoint.sh" ]
 
-CMD [ "bundle", "exec", "jekyll", "serve", "--force_polling", "-H", "0.0.0.0", "-P", "4000" ]
+#CMD [ "bundle", "exec", "jekyll", "serve", "--force_polling", "-H", "0.0.0.0", "-P", "4000" ]

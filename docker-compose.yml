@@ -1,9 +1,9 @@
-# no version needed since 2020
 
 services:
   jekyll:
-    image: bretfisher/jekyll-serve
+    image: jkedra/jekyll-serve
     volumes:
       - .:/site
     ports:
-      - '4000:4000'
+      - '8080:8080'
+      - '8081:8081'
