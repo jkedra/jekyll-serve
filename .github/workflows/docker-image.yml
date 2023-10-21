@@ -1,7 +1,12 @@
+# https://docs.docker.com/build/ci/github-actions/
+#
 name: Docker Image CI
 
-on: [push, workflow_dispatch]
-#  branches: [ "jkedra" ]
+on:
+  push:
+    branches:
+      - jkedra
+  workflow_dispatch:
 
 #  pull_request:
 #    branches: [ "main" ]
