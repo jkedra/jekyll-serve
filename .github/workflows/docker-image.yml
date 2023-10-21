@@ -1,8 +1,8 @@
 name: Docker Image CI
 
-on:
-  push:
+on: [push, workflow_dispatch]
     branches: [ "jkedra" ]
+
 #  pull_request:
 #    branches: [ "main" ]
 
@@ -25,7 +25,8 @@ jobs:
         run: |
           export tag=(date +%y%m%d.%H%M))
           docker build . --file Dockerfile --tag jekyll:$tag
-          docker tag jekyl:$tag jkedra/jekyll
+          docker tag jekyll:$tag jkedra/jekyll:$tag
+          docker push jkedra/jekyll:$tag
 
 #      - name: Build and push
 #        uses: docker/build-push-action@v5
