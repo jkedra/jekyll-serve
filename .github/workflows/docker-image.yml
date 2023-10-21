@@ -21,10 +21,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and Push
         run: |
-          export tag=(date +%y%m%d.%H%M)
+          export tag=$(date +%y%m%d.%H%M)
           docker build . --file Dockerfile --tag jekyll:$tag
           docker tag jekyll:$tag jkedra/jekyll:$tag
+          docker tag jkedra/jekyll:$tag jkedra/jekyll:latest
           docker push jkedra/jekyll:$tag
+          docker push jkedra/jekyll:latest
 
 #      - name: Build and push
 #        uses: docker/build-push-action@v5
