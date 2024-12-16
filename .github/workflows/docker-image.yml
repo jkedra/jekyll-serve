@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  build-jekyll-image:
 
     runs-on: ubuntu-latest
 
